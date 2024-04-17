@@ -54,8 +54,10 @@ pipeline {
                     api1Url = 'http://localhost:3002/api'
                 }
                 // Run the Docker image
-                sh "/usr/local/bin/docker run -e REACT_APP_API_URL=${api1Url} -d -p ${hostPort}:3003 --name ${containerName} ds8reactapp"    
+                //sh "/usr/local/bin/docker run -d -p ${hostPort}:3003 --name ${containerName} ds8reactapp"    
+                sh "/usr/local/bin/docker run -d -p 3003:3003 --name ds8reactapp ds8reactapp"
                 sleep 30
+                sh "/usr/local/bin/docker logs ${containerName}"    
                 }
             }
     }
@@ -78,7 +80,7 @@ pipeline {
                     while (attempts < 20) {
                         echo "Attemps: ${attempts}"
                         // Perform an HTTP GET request to the application and get the status code
-                        def pingResult = sh(script: "curl -f http://localhost:${hostPort}/api || true", returnStdout: true).trim()
+                        def pingResult = sh(script: "curl -f http://localhost:${hostPort} || true", returnStdout: true).trim()
                         echo "Ping result: ${pingResult}"
                         if (!pingResult.contains('Hello')) {
                             // If the test failed, wait for 10 seconds before trying again
