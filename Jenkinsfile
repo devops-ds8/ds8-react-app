@@ -54,7 +54,7 @@ pipeline {
                     api1Url = 'http://localhost:3002/api'
                 }
                 // Run the Docker image
-                sh "/usr/local/bin/docker run -e REACT_APP_API_URL=${api1Url} -d -p ${hostPort}:3003 --name ${containerName} ds8reactapp"    
+                sh "/usr/local/bin/docker run -d -p ${hostPort}:3003 --name ${containerName} ds8reactapp"    
                 sleep 30
                 }
             }
