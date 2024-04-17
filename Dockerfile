@@ -6,10 +6,10 @@ WORKDIR /usr/src/app
 
 # Copy package.json and yarn.lock files to the working directory
 COPY package.json ./
-COPY yarn.lock ./
+COPY package-lock.json ./
 
 # Install the application dependencies
-RUN yarn install
+RUN npm install
 
 # Copy the rest of the application code to the working directory
 COPY . .
@@ -18,4 +18,4 @@ COPY . .
 EXPOSE 3003
 
 # Define the command to run the application
-CMD [ "yarn", "start" ]
+CMD [ "npm", "start" ]
