@@ -4525,6 +4525,7 @@ __metadata:
     "@testing-library/user-event": ^13.5.0
     dotenv: ^16.4.5
     http-proxy-middleware: ^2.0.1
+    jest: ^27.5.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-scripts: 5.0.1
@@ -8507,7 +8508,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^27.4.3":
+"jest@npm:^27.4.3, jest@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest@npm:27.5.1"
   dependencies:
