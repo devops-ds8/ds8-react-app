@@ -79,7 +79,7 @@ pipeline {
                     while (attempts < 20) {
                         echo "Attemps: ${attempts}"
                         // Perform an HTTP GET request to the application and get the status code
-                        def pingResult = sh(script: "curl -f http://localhost:${hostPort}/api || true", returnStdout: true).trim()
+                        def pingResult = sh(script: "curl -f http://localhost:${hostPort} || true", returnStdout: true).trim()
                         echo "Ping result: ${pingResult}"
                         if (!pingResult.contains('Hello')) {
                             // If the test failed, wait for 10 seconds before trying again
