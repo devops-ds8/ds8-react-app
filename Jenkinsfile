@@ -54,7 +54,7 @@ pipeline {
                 }
                 // Run the Docker image
                 //sh "/usr/local/bin/docker run -d -p ${hostPort}:3003 --name ${containerName} ds8reactapp"    
-                sh "/usr/local/bin/docker run -d -p 3003:3003 --name ds8reactapp ds8reactapp"
+                sh "/usr/local/bin/docker run -d --publish 3003:3003 --name ds8reactapp ds8reactapp"
                 sleep 30
                 sh "/usr/local/bin/docker logs ${containerName}"    
                 }
