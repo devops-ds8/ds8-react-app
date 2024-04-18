@@ -31,7 +31,7 @@ pipeline {
                     // Remove the Docker container
                     sh "/usr/local/bin/docker rm ${imageName} || true"
                     // Build the Docker image
-                    sh "/usr/local/bin/docker build -t ${imageName} ."
+                    sh "/usr/local/bin/docker build --platform linux/amd64 -t ${imageName} ."
                 }
         }
     }
